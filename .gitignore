@@ -1,0 +1,6 @@
+# Binaries live on GitHub Releases, never in git — they're ~190MB each and
+# GitHub hard-rejects any file over 100MB.
+*.dmg
+*.zip
+*.blockmap
+.DS_Store
