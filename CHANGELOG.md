@@ -7,6 +7,43 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.3.1] — 2026-09-21
+
+A distribution fix. No application code changed — this is the 0.3.0 build,
+notarized. If 0.3.0 installed and ran for you, there is nothing new here.
+
+### 🔒 Security
+
+- **Builds are now notarized by Apple and stapled.** 0.3.0 was signed with a
+  Developer ID but never submitted to Apple's notary service, so Gatekeeper
+  refused it on every machine except the one that built it — downloaders were
+  told macOS *"cannot verify this app is free of malware"* and had to
+  right-click → **Open** to get past it. That workaround is gone: 0.3.1 opens
+  with a normal double-click.
+
+  Both the app and the disk image now carry their own notarization ticket, so
+  verification also works offline:
+
+  ```
+  spctl -a -t exec /Applications/Ghost.app   # → accepted, Notarized Developer ID
+  ```
+
+  Teaching users to bypass Gatekeeper is bad practice for an app that asks for
+  Screen Recording, Microphone, and Accessibility on first launch — the right-click
+  habit is exactly what malware distribution relies on.
+
+### 🔧 Build
+
+- `npm run package:mac` now notarizes and staples by default, rather than only
+  signing. Notarizing the app alone is not enough: the `.dmg` around it is a
+  separate signable object needing its own ticket, which `scripts/notarize-dmg.sh`
+  now handles.
+- The packaging script fails loudly if the notary step was skipped. electron-builder
+  silently downgrades a missing credential to a warning and still exits 0, which is
+  how an unnotarized 0.3.0 shipped without anyone noticing.
+
+---
+
 ## [0.2.0] — 2026-08-28
 
 First distributed build. A rewrite of the answer path around the thing that
