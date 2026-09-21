@@ -7,6 +7,73 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.4.0] — 2026-09-21
+
+Ghost 0.3.1 worked on the machine it was built on. This release is what came
+out of watching someone else try to run it.
+
+### 🐛 Fixed
+
+- **Listen worked on macOS 26 only.** The bundled `ghost-speech` helper was
+  compiled for macOS 26 with a hard link to FoundationModels (the on-device
+  "should I answer this?" judge), so on an older Mac dyld refused to load it and
+  aborted the process at launch — taking live transcription down with it, even
+  though Speech.framework itself has worked since 10.15. The helper now deploys
+  to macOS 13 with FoundationModels weak-linked and every use of it behind an
+  availability check; below macOS 26 the judge reports itself unavailable and
+  Ghost falls back to its simpler trigger. The build fails if that regresses.
+
+- **Three crashes that showed the unescapable "A JavaScript error occurred"
+  dialog.** Starting a recording before `~/Documents/ghost-workspace/sessions`
+  existed (`ENOENT`), audio still streaming into the speech helper after it
+  died (`EPIPE`), and the sign-in helper's terminal closing mid-write. On a
+  menubar app with no dock icon that dialog is close to impossible to get away
+  from.
+
+- **Quitting Ghost.** The menubar icon was an empty image — the tray item
+  rendered nothing, and its menu was the only place "Quit Ghost" existed. There
+  is a real icon now, plus **⌘Q** from the overlay or the dashboard and a
+  **Quit Ghost** button in Settings. Quitting mid-recording also can't hang
+  forever waiting for the audio to finish writing.
+
+- **A fresh install refused every question** with *"No Claude OAuth token set.
+  Run `claude setup-token`"* — even on a Mac where the `claude` CLI was signed
+  in. Ghost now uses that login when it has no token of its own, and the same
+  credential is used by live answers, the connection test, and History's notes.
+
+- **Closing the welcome window** left Ghost running invisibly with a stranded
+  dock icon. It now counts as skipping setup and shows the overlay.
+
+- **Repeated identical errors.** When a credential was broken, every sentence
+  spoken triggered another doomed answer and the overlay filled with red. Live
+  guidance and screen autopilot now stop after three consecutive failures and
+  say why once; saving Settings resumes them.
+
+- **Meeting notes failed silently** in the dashboard — the button spun, nothing
+  appeared, no explanation. The reason is shown now.
+
+- **Misleading advice** when call audio wasn't captured: it told people to pick
+  a screen in a share picker Ghost never shows. It names the real cause —
+  Screen Recording permission — instead.
+
+### ✨ Added
+
+- **In-app updates.** Ghost checks the signed releases once a day and from
+  **Settings → About**, downloads in the background, and installs only when you
+  press *Restart & update* — nothing restarts itself while you're in a call. The
+  menubar menu shows the same state. Running from the mounted disk image is
+  detected and explained, since macOS makes that path unupdatable.
+
+### 📋 Requirements
+
+- **macOS 13 or newer** is now stated explicitly (it was always the real floor —
+  system-audio capture needs it).
+- **Drag Ghost to Applications** before launching. Run from the disk image,
+  macOS re-randomizes its path on every launch, so screen and microphone
+  permissions never stick and updates can't install.
+
+---
+
 ## [0.3.1] — 2026-09-21
 
 A distribution fix. No application code changed — this is the 0.3.0 build,
