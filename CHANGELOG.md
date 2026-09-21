@@ -7,6 +7,22 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.4.1] — 2026-09-21
+
+A one-fix follow-up to 0.4.0.
+
+### 🐛 Fixed
+
+- **The daily update check no longer leaves an error in Settings.** Ghost's
+  update feed isn't publicly readable yet, so the background check fails — and
+  because the updater reports failures whether or not anyone asked for one,
+  0.4.0 parked a raw transport error in **Settings → About** for users who
+  never pressed anything. Background checks now fail to the log and go back to
+  idle; only a check you start reports, and it names the likely cause rather
+  than quoting the updater.
+
+---
+
 ## [0.4.0] — 2026-09-21
 
 Ghost 0.3.1 worked on the machine it was built on. This release is what came
