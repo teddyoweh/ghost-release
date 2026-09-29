@@ -7,6 +7,25 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.6.1] — 2026-09-29
+
+### ✨ Added
+
+- **Screen recording.** *Settings → Save screen recording* keeps a video of
+  your screen with both voices for each session, beside its audio. Ghost never
+  appears in it. Off by default; up to about 700 MB an hour.
+- **Notes that watch the recording.** Ghost picks the frames where the screen
+  actually changed — plus the moments someone pointed at something — and
+  writes notes from the transcript and the screen together, so the problem
+  statement, the error and the test results make it in.
+- **Screenshots and times in notes.** Key frames sit under the point they
+  support and every topic carries the time it started; click either to play
+  the recording from there.
+- **Video in History.** The recording plays in the session's Recording card and
+  stays pinned beside the notes, with the waveform, seeking and 0.5–2× speed.
+
+---
+
 ## [0.6.0] — 2026-09-29
 
 ### ✨ Added
