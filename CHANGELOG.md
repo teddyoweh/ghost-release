@@ -7,6 +7,33 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.6.0] — 2026-09-29
+
+### ✨ Added
+
+- **Session templates.** Save a brief for a kind of session — the format, the
+  problem types, your own follow-ups — and Ghost reads it before the first
+  question. Share one as a paste-able code or a `.ghosttemplate` file.
+- **Live / Practice.** Tabs across the top of the overlay. Practice tells Ghost
+  you're rehearsing a mock interview. The glass tints red for Live and green
+  for Practice, so the mode is visible at a glance, even minimized.
+- **Dashboard: Context, Templates, Hacks.** Who you are (folded into every
+  session), your templates, and your ⌃⌥1–9 follow-ups beside every shortcut
+  Ghost listens for. All of it autosaves.
+
+### 🔧 Changed
+
+- **Guide** looks before it answers and pastes code instead of typing it.
+  **Drive** glides between moves and shows where it's about to act.
+
+### 🐛 Fixed
+
+- **Mac updates.** 0.5.3 and 0.5.4 were published without `latest-mac.yml`, so
+  Macs stopped seeing updates. 0.6.0 carries the Mac and Windows feeds, and
+  Macs on an older version pick it up at their next check.
+
+---
+
 ## [0.4.1] — 2026-09-21
 
 A one-fix follow-up to 0.4.0.
