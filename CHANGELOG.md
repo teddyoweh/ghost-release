@@ -7,6 +7,32 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.6.2] — 2026-09-29
+
+### ✨ Added
+
+- **A new overlay.** A small control pill on top — Ghost, Hide/Show, Record —
+  and a glass card under it: your question as a bubble, the answer, quick
+  actions, and a composer with Co-pilot, Guide and AGI one click away. Hide
+  folds it to just the pill.
+- **Move it anywhere.** ⌘ + arrow keys while Ghost is focused, ⌃⌥ + arrow keys
+  from anywhere (Ctrl and Ctrl+Alt on Windows).
+
+### ⚡ Faster
+
+- **Live answers land 1–2 seconds after a question ends** (was ~3.5). Claude
+  Haiku decides when someone's asked something, in about half a second, and
+  the answer starts writing while it decides. Ghost keeps its Claude
+  processes warm during a session instead of starting one per answer.
+
+### 🐛 Fixed
+
+- **Small talk no longer triggers answers.** The on-device judge was
+  throttled by macOS and fell back to a word count; Haiku reads the meaning.
+- Session type (Live / Practice) moved into Settings.
+
+---
+
 ## [0.6.1] — 2026-09-29
 
 ### ✨ Added
