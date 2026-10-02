@@ -7,6 +7,26 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.6.3] — 2026-10-02
+
+### ✨ Added
+
+- **Sign in with ChatGPT from Settings.** Codex no longer expects a
+  `codex login` run in a terminal. *Settings → Codex → Sign in with ChatGPT*
+  opens the page, puts the one-time code on the clipboard, and the login
+  lands on this computer by itself. Settings shows whether you're signed in,
+  with Recheck and Sign out.
+
+### 🐛 Fixed
+
+- **"Reconnecting… 401 Unauthorized" on Codex.** That was Codex running
+  with no login at all. Ghost now says it isn't signed in to ChatGPT yet and
+  points to the button, instead of looping on the error.
+- The startup notice and the overlay's sign-in banner ask for whichever
+  provider is chosen (ChatGPT, OpenAI API key, or Claude), not always Claude.
+
+---
+
 ## [0.6.2] — 2026-09-29
 
 ### ✨ Added
