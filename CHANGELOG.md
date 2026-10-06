@@ -7,6 +7,37 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.7.0] — 2026-10-06
+
+### ✨ Added
+
+- **Co-pilot shows the questions it hears.** When the other person asks
+  something, the question pops up as a card with its answer already written
+  behind it. *Show answer* (or ⌘⇧A) puts it on screen instantly.
+- **AGI answers on its own** and is now the only mode that does. It can be
+  switched on or off mid-call.
+- **Typed questions know what was said.** Anything you ask during a call
+  carries the conversation, so "answer that" works. AGI's screen answers
+  hear the conversation too.
+- **Drag the overlay with the mouse.** Grab the pill or any empty part of
+  the card.
+
+### 🐛 Fixed
+
+- **Interviewer questions lost while you were talking.** When both sides
+  spoke, the other person's words were dropped, and a sentence was cut to
+  fragments whenever speech passed between the mic and the call. Their
+  speech now takes priority, and nothing in progress is thrown away.
+- **Co-pilot silently answering nothing.** Turning AGI off switched
+  "Co-pilot answers" to manual behind your back, for every session after.
+  The setting is gone; the Co-pilot and AGI buttons decide.
+- **Question detection** now catches the problem being set, hints ("you
+  might want to swap that less than") and "what questions do you have for
+  me". It no longer fires on your own answers or halfway through an
+  explanation.
+
+---
+
 ## [0.6.3] — 2026-10-02
 
 ### ✨ Added
