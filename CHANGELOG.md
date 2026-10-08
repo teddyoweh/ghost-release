@@ -7,6 +7,24 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.7.1] — 2026-10-08
+
+### ✨ Added
+
+- **Type into Ghost without leaving your app (Mac).** Press ⌃⌥Space or
+  click **Keyboard** beside AGI, wait for the amber "Keyboard → Ghost"
+  badge, and keys go to Ghost's composer while the other app stays in
+  front. Enter sends, Esc exits. It turns itself off after 60 seconds, on
+  an app switch, or under macOS Secure Input. Needs Accessibility / Input
+  Monitoring. Basic text only: no IME or dictation, and not for passwords.
+
+### 🔄 Changed
+
+- **Showing Ghost no longer takes focus.** ⌘\ and the other shortcuts bring
+  the overlay up without pulling the keyboard from the app you're in.
+
+---
+
 ## [0.7.0] — 2026-10-06
 
 ### ✨ Added
